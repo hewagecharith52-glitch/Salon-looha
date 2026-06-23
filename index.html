@@ -113,16 +113,29 @@
             color: transparent;
             -webkit-text-stroke: 1px #1b1c1c;
         }
-        
-        /* Native Scroll Animation Initial States */
+
+        /* 100% Working Native Scroll Animation CSS Styles */
         .observe-me {
             opacity: 0;
-            transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
+
+        /* Replicating AOS effects using classes for the observer */
+        .observe-me[data-aos="fade-up"] {
+            transform: translateY(40px);
+        }
+
+        .observe-me[data-aos="fade-right"] {
+            transform: translateX(-50px);
+        }
+
+        .observe-me[data-aos="fade-left"] {
+            transform: translateX(50px);
+        }
+
         .show-on-scroll {
             opacity: 1 !important;
-            transform: translateY(0) !important;
+            transform: translate(0, 0) !important;
         }
     </style>
 </head>
@@ -132,6 +145,7 @@
 
     <!-- Interactive Mouse Ripples Container -->
     <div id="ripple-container" class="fixed inset-0 pointer-events-none z-[100] hidden md:block overflow-hidden"></div>
+
     <!-- Floating Social Sidebar -->
     <div
         class="fixed right-0 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col gap-4 bg-[#232323] p-3 rounded-l-2xl shadow-[0_10px_30px_rgba(0,0,0,0.3)] border border-r-0 border-[#FA92A5]/20">
@@ -204,58 +218,15 @@
 
     <main class="pt-20">
         <style>
-            @keyframes slideInLeft {
-                0% {
-                    transform: translateX(-150vw);
-                    opacity: 0;
-                }
-
-                60% {
-                    opacity: 1;
-                }
-
-                100% {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
-
-            @keyframes slideInRight {
-                0% {
-                    transform: translateX(150vw);
-                    opacity: 0;
-                }
-
-                60% {
-                    opacity: 1;
-                }
-
-                100% {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
-
-            @keyframes slideUpFade {
-                0% {
-                    transform: translateY(40px);
-                    opacity: 0;
-                }
-
-                100% {
-                    transform: translateY(0);
-                    opacity: 1;
-                }
-            }
-
-            /* Interactive Mouse Ripples */
+            /* Interactive Mouse Ripples styling */
             .mouse-ripple {
                 position: absolute;
                 border-radius: 50%;
                 transform: translate(-50%, -50%) scale(0.2);
-                animation: ripple-expand 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-                border: 1px solid rgba(250, 146, 165, 0.4);
-                background: radial-gradient(circle, rgba(250, 146, 165, 0.08) 0%, rgba(250, 146, 165, 0) 70%);
+                animation: ripple-expand 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+                border: 2px solid rgba(250, 146, 165, 0.8);
+                box-shadow: 0 0 20px rgba(35, 35, 35, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.6);
+                background: radial-gradient(circle, rgba(250, 146, 165, 0.2) 0%, rgba(255, 255, 255, 0.1) 40%, rgba(250, 146, 165, 0) 80%);
                 pointer-events: none;
                 z-index: 9999;
             }
@@ -264,11 +235,13 @@
                 0% {
                     transform: translate(-50%, -50%) scale(0.2);
                     opacity: 1;
+                    border-width: 2px;
                 }
 
                 100% {
-                    transform: translate(-50%, -50%) scale(2.5);
+                    transform: translate(-50%, -50%) scale(4.5);
                     opacity: 0;
+                    border-width: 0px;
                 }
             }
         </style>
@@ -292,12 +265,12 @@
                 <!-- Animated Typography Block -->
                 <div
                     class="absolute inset-0 z-20 flex flex-col items-center justify-center px-gutter pt-10 pointer-events-none w-full max-w-container-max mx-auto">
-
                     <h1
                         class="font-display-lg text-display-lg md:text-[90px] md:leading-none tracking-tighter mb-10 drop-shadow-2xl flex flex-col items-center gap-6 w-full overflow-hidden py-4">
 
-                        <!-- Line 1: Slides from extreme left -->
-                        <div class="relative flex flex-wrap justify-center gap-3 md:gap-4" data-aos="fade-right" data-aos-duration="1200">
+                        <!-- Line 1: Slides from left -->
+                        <div class="relative flex flex-wrap justify-center gap-3 md:gap-4" data-aos="fade-right"
+                            data-aos-duration="1200">
                             <span
                                 class="inline-block bg-[#FA92A5] text-[#232323] px-6 md:px-10 py-3 md:py-4 text-center rounded-full shadow-[0_15px_30px_rgba(0,0,0,0.15),inset_0_4px_10px_rgba(255,255,255,0.4),inset_0_-8px_15px_rgba(0,0,0,0.2)] box-decoration-clone">Transform
                                 Your</span>
@@ -305,19 +278,20 @@
                                 class="inline-block bg-[#232323] text-[#FA92A5] px-6 md:px-10 py-3 md:py-4 text-center rounded-full shadow-[0_15px_30px_rgba(0,0,0,0.15),inset_0_4px_10px_rgba(255,255,255,0.1),inset_0_-8px_15px_rgba(0,0,0,0.5)] box-decoration-clone">Look.</span>
                         </div>
 
-                        <!-- Line 2: Slides from extreme right -->
-                        <div class="relative flex flex-wrap justify-center gap-3 md:gap-4" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                        <!-- Line 2: Slides from right -->
+                        <div class="relative flex flex-wrap justify-center gap-3 md:gap-4" data-aos="fade-left"
+                            data-aos-duration="1200" data-aos-delay="200">
                             <span
                                 class="inline-block italic font-light bg-[#232323] text-[#FA92A5] px-6 md:px-10 py-3 md:py-4 text-center rounded-full shadow-[0_15px_30px_rgba(0,0,0,0.15),inset_0_4px_10px_rgba(255,255,255,0.1),inset_0_-8px_15px_rgba(0,0,0,0.5)] box-decoration-clone">Transform
                                 Your</span>
                             <span
                                 class="inline-block italic font-light bg-[#FA92A5] text-[#232323] px-6 md:px-10 py-3 md:py-4 text-center rounded-full shadow-[0_15px_30px_rgba(0,0,0,0.15),inset_0_4px_10px_rgba(255,255,255,0.4),inset_0_-8px_15px_rgba(0,0,0,0.2)] box-decoration-clone">Life.</span>
                         </div>
-
                     </h1>
 
                     <!-- Subheading and Button: Slide from bottom -->
-                    <div class="flex flex-col items-center pointer-events-auto" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                    <div class="flex flex-col items-center pointer-events-auto" data-aos="fade-up"
+                        data-aos-duration="1000" data-aos-delay="600">
                         <p
                             class="font-body-lg text-body-lg max-w-md mx-auto text-[#232323] font-medium mb-10 drop-shadow-sm text-center">
                             Redefining luxury artistry through a lens of modern minimalism and soft-lit sophistication.
@@ -327,17 +301,17 @@
                             Contact Us
                         </a>
                     </div>
-
                 </div>
             </div>
         </div>
         <!-- End Hero & Scroll Animation Section -->
 
-        <!-- About Us (High-Fashion Editorial Style) -->
+        <!-- About Us -->
         <section class="bg-[#FA92A5] text-white py-margin-desktop px-gutter" id="about">
             <div class="max-w-container-max mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
-                    <div class="md:col-span-5 md:col-start-2 flex flex-col gap-6" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="md:col-span-5 md:col-start-2 flex flex-col gap-6" data-aos="fade-up"
+                        data-aos-duration="1000">
                         <span class="font-label-sm text-label-sm text-white/80 uppercase tracking-widest">01 — About
                             Us</span>
                         <h2
@@ -355,11 +329,12 @@
                             serene elegance.
                         </p>
                     </div>
-                    <div class="md:col-span-5 md:col-start-8 relative mt-12 md:mt-0" data-aos="fade-left" data-aos-duration="1200">
+                    <div class="md:col-span-5 md:col-start-8 relative mt-12 md:mt-0" data-aos="fade-left"
+                        data-aos-duration="1200">
                         <div class="aspect-[3/4] overflow-hidden relative shadow-2xl">
                             <img class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                                data-alt="A striking portrait of a woman in a minimalist, light-filled studio. She wears a structured deep purple garment that contrasts sharply with the soft petal pink environment. Her makeup is flawless, emphasizing natural radiance with subtle glass-skin effects. The framing is cinematic and asymmetrical, evoking high-end editorial photography."
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUUM4G_3KSY2hfz7I-I2xKpNrQBFGPrfExk976EiW7vw32ZL8d_l0za2AOYGApsdjtB-ZP3AKQ-7BdeVitTTSFV62Nsh-0KXhTR7-R2f5t3aP9M8RdYtQbFmVCVMF9uUGxYdmcWYeutAcc-oP0DIb5tPqK8r0b1VKm2jDWgKJz_fIBC_HmtobLUTFOlvndQw0jqgGhc5riUQxuzZ3LUwpHxQvuzfN91lg2HQM-llTJFkIiqhYq9nnwelpFcjaoKCZEexpz-Ljfwow" />
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUUM4G_3KSY2hfz7I-I2xKpNrQBFGPrfExk976EiW7vw32ZL8d_l0za2AOYGApsdjtB-ZP3AKQ-7BdeVitTTSFV62Nsh-0KXhTR7-R2f5t3aP9M8RdYtQbFmVCVMF9uUGxYdmcWYeutAcc-oP0DIb5tPqK8r0b1VKm2jDWgKJz_fIBC_HmtobLUTFOlvndQw0jqgGhc5riUQxuzZ3LUwpHxQvuzfN91lg2HQM-llTJFkIiqhYq9nnwelpFcjaoKCZEexpz-Ljfwow"
+                                alt="Salon Muse Portrait" />
                             <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-white/20 rounded-full blur-2xl"></div>
                         </div>
                     </div>
@@ -373,10 +348,11 @@
             <div class="absolute bottom-0 left-0 w-full h-[1px] bg-[#232323]/10"></div>
             <div
                 class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-margin-desktop items-center">
-                <div class="order-2 md:order-1 relative h-[614px] md:h-[819px] shadow-2xl" data-aos="fade-right" data-aos-duration="1200">
+                <div class="order-2 md:order-1 relative h-[614px] md:h-[819px] shadow-2xl" data-aos="fade-right"
+                    data-aos-duration="1200">
                     <img class="w-full h-full object-cover"
-                        data-alt="Abstract macro photography of makeup textures. Swirls of vibrant pink cream blush and deep charcoal eyeliner set against a pure white background. The lighting is soft and airy, highlighting the luxurious, silky finish of the products. The composition is clean, modern, and highly structural."
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJtI0qno0lgLULsSqC8-vVddtk29081DD9RIdV86c6lVQ2269KTnN6AMI3VUIn3XKZAEAaz0HuYSdm93PZqDgzJWCYtUMUyr_n00k-dyf-FGgBq3I5Ifz5R9fCVGXTKMpQ7tkC2xVfVrUGcWFxTV81nIp3fKSxdZJMOSMIETYEMCvk-g-f9HeDh7l3VVzXCoqZGLiXcRAfUbuaL244JQ4W5nzsGVS0uyjVPgd88bVOjsxMUoZoxzjqRvE3PY6aQBC2H5ykeTTdupw" />
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJtI0qno0lgLULsSqC8-vVddtk29081DD9RIdV86c6lVQ2269KTnN6AMI3VUIn3XKZAEAaz0HuYSdm93PZqDgzJWCYtUMUyr_n00k-dyf-FGgBq3I5Ifz5R9fCVGXTKMpQ7tkC2xVfVrUGcWFxTV81nIp3fKSxdZJMOSMIETYEMCvk-g-f9HeDh7l3VVzXCoqZGLiXcRAfUbuaL244JQ4W5nzsGVS0uyjVPgd88bVOjsxMUoZoxzjqRvE3PY6aQBC2H5ykeTTdupw"
+                        alt="Makeup Textures" />
                     <div
                         class="absolute bottom-8 right-8 left-8 md:left-auto md:-right-12 md:bottom-16 w-auto md:w-80 bg-white/70 backdrop-blur-md border border-[#232323]/10 p-8 shadow-xl text-[#232323]">
                         <span class="material-symbols-outlined text-[#FA92A5] mb-4"
@@ -386,7 +362,8 @@
                             techniques and weightless formulations.</p>
                     </div>
                 </div>
-                <div class="order-1 md:order-2 flex flex-col justify-center max-w-lg" data-aos="fade-left" data-aos-duration="1200">
+                <div class="order-1 md:order-2 flex flex-col justify-center max-w-lg" data-aos="fade-left"
+                    data-aos-duration="1200">
                     <span class="font-label-sm text-label-sm text-[#232323]/60 uppercase tracking-widest mb-6">02 — Our
                         Mission</span>
                     <h2
@@ -424,7 +401,6 @@
                 <!-- Google Reviews Widget Container -->
                 <div
                     class="w-full bg-white rounded-3xl shadow-2xl overflow-hidden border border-white/20 p-2 md:p-6 text-[#232323]">
-                    <!-- Elfsight Google Reviews | Untitled Google Reviews -->
                     <script src="https://elfsightcdn.com/platform.js" async></script>
                     <div class="elfsight-app-58c17186-0c0e-41dc-b65f-8665dd1cfcf2" data-elfsight-app-lazy></div>
                 </div>
@@ -484,14 +460,13 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Map / Visual Representation -->
-                    <div
-                        class="relative h-[400px] md:h-[500px] w-full overflow-hidden rounded-3xl border border-[#232323]/10 group shadow-2xl bg-[#f5f5f5]" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <!-- Map Frame -->
+                    <div class="relative h-[400px] md:h-[500px] w-full overflow-hidden rounded-3xl border border-[#232323]/10 group shadow-2xl bg-[#f5f5f5]"
+                        data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
                         <iframe
                             src="https://maps.google.com/maps?q=Ave%20Maria%20Rd,%20Negombo%2011410&t=&z=15&ie=UTF8&iwloc=&output=embed"
                             width="100%" height="100%" style="border:0; filter: grayscale(80%) contrast(1.1);"
-                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
@@ -499,12 +474,10 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white w-full py-section-padding-mobile md:py-16 border-t border-[#232323]/10">
+    <footer class="bg-white w-full py-10 md:py-16 border-t border-[#232323]/10">
         <div
             class="flex flex-col md:flex-row justify-between items-center gap-8 px-gutter max-w-container-max mx-auto mb-8 md:mb-12">
-            <div class="font-headline-md text-headline-md text-[#232323] tracking-tighter shrink-0">
-                SALON LOOHA
-            </div>
+            <div class="font-headline-md text-headline-md text-[#232323] tracking-tighter shrink-0">SALON LOOHA</div>
             <nav
                 class="flex flex-wrap justify-center items-center gap-5 md:gap-8 font-label-caps text-label-caps text-[#232323]/70">
                 <a class="underline-offset-4 hover:underline hover:text-[#FA92A5] transition-colors text-[#232323] whitespace-nowrap"
@@ -529,14 +502,16 @@
         </div>
     </footer>
 
+    <!-- Main JavaScript Logic -->
     <script>
+        // --- 1. Canvas Scroll Animation Frame Engine ---
         const canvas = document.getElementById('scroll-canvas');
         const context = canvas.getContext('2d');
         const loading = document.getElementById('loading');
 
         const frameCount = 173;
         const currentFrame = index => (
-            `ezgif-frame-${(index + 1).toString().padStart(3, '0')}.jpg`
+            `ezgif-frame-` + (index + 1).toString().padStart(3, '0') + `.jpg`
         );
 
         const images = [];
@@ -573,7 +548,6 @@
 
             const container = document.getElementById('animation-container');
             const rect = container.getBoundingClientRect();
-
             const maxScroll = rect.height - window.innerHeight;
             let scrollFraction = 0;
 
@@ -595,17 +569,10 @@
             });
         };
 
-        window.addEventListener('scroll', () => {
-            updateImage();
-        });
+        window.addEventListener('scroll', updateImage, { passive: true });
+        window.addEventListener('resize', () => { if (imagesReady) updateImage(); });
 
-        window.addEventListener('resize', () => {
-            if (imagesReady) {
-                updateImage();
-            }
-        });
-
-        // Mobile Menu Toggle Logic
+        // --- 2. Mobile Menu Toggle Logic ---
         const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
         const mobileMenuClose = document.getElementById('mobile-menu-close');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -613,7 +580,7 @@
 
         const openMenu = () => {
             mobileMenu.classList.remove('translate-x-full');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            document.body.style.overflow = 'hidden';
         };
 
         const closeMenu = () => {
@@ -624,31 +591,26 @@
         if (mobileMenuToggle && mobileMenuClose && mobileMenu) {
             mobileMenuToggle.addEventListener('click', openMenu);
             mobileMenuClose.addEventListener('click', closeMenu);
-            // Close menu when a link is clicked
             mobileLinks.forEach(link => {
                 link.addEventListener('click', closeMenu);
             });
         }
 
-        // Interactive Mouse Ripples Logic
+        // --- 3. Interactive Mouse Water Ripples Logic ---
         const rippleContainer = document.getElementById('ripple-container');
         let lastRippleTime = 0;
 
-        // Only initialize on desktop to avoid mobile touch conflicts
         if (window.matchMedia("(min-width: 768px)").matches) {
             document.addEventListener('mousemove', (e) => {
                 const now = Date.now();
-                if (now - lastRippleTime < 60) return; // Throttle ripple creation for performance
+                if (now - lastRippleTime < 50) return;
                 lastRippleTime = now;
 
                 const ripple = document.createElement('div');
                 ripple.className = 'mouse-ripple';
-
-                // Position ripple exactly under cursor
                 ripple.style.left = `${e.clientX}px`;
                 ripple.style.top = `${e.clientY}px`;
 
-                // Add slight randomness to size for organic water feel
                 const baseSize = 100;
                 const randomSize = baseSize * (0.8 + Math.random() * 0.4);
                 ripple.style.width = `${randomSize}px`;
@@ -656,43 +618,35 @@
 
                 rippleContainer.appendChild(ripple);
 
-                // Clean up DOM after animation completes (1.2s)
                 setTimeout(() => {
                     if (ripple.parentNode) ripple.parentNode.removeChild(ripple);
-                }, 1200);
+                }, 1500);
             }, { passive: true });
         }
 
-        // Native Vanilla JS Intersection Observer
+        // --- 4. Fully Fixed Native Scroll Animation Engine (Intersection Observer) ---
         document.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('show-on-scroll');
-                        observer.unobserve(entry.target); // Trigger only once
+                        observer.unobserve(entry.target);
                     }
                 });
             }, {
                 threshold: 0.1,
-                rootMargin: "0px 0px -50px 0px"
+                rootMargin: "0px 0px -40px 0px"
             });
 
-            // Target all elements that were set up for AOS
             document.querySelectorAll('[data-aos]').forEach(el => {
-                el.classList.add('observe-me'); // Apply initial hidden state
-                
-                // Read and apply inline transition delays if specified
+                el.classList.add('observe-me');
+
                 const delay = el.getAttribute('data-aos-delay');
-                if (delay) {
-                    el.style.transitionDelay = `${delay}ms`;
-                }
-                
-                // Read and apply inline transition durations if specified
+                if (delay) el.style.transitionDelay = `${delay}ms`;
+
                 const duration = el.getAttribute('data-aos-duration');
-                if (duration) {
-                    el.style.transitionDuration = `${duration}ms`;
-                }
-                
+                if (duration) el.style.transitionDuration = `${duration}ms`;
+
                 observer.observe(el);
             });
         });
