@@ -113,6 +113,11 @@
             -webkit-text-stroke: 1px #1b1c1c;
         }
 
+        body {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
         /* Fixed Intersection Observer Initial States */
         .observe-me {
             opacity: 0;
@@ -636,6 +641,9 @@
 
         // --- 4. Native Scroll Animation Engine (Intersection Observer) ---
         document.addEventListener('DOMContentLoaded', () => {
+            // Reveal body after tailwind completes DOM processing
+            document.body.style.opacity = 1;
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
