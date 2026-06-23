@@ -113,6 +113,17 @@
             color: transparent;
             -webkit-text-stroke: 1px #1b1c1c;
         }
+        
+        /* Native Scroll Animation Initial States */
+        .observe-me {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .show-on-scroll {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
     </style>
 </head>
 
@@ -263,7 +274,7 @@
         </style>
 
         <!-- Hero Title & Scroll Animation Section -->
-        <div id="animation-container" style="height: 100vh; position: relative; background-color: #000;">
+        <div id="animation-container" style="height: 500vh; position: relative; background-color: #000;">
             <div class="sticky-canvas-container"
                 style="position: sticky; top: 0; width: 100%; height: 100vh; overflow: hidden; background-color: #000; z-index: 10;">
                 <div class="loading" id="loading"
@@ -286,7 +297,7 @@
                         class="font-display-lg text-display-lg md:text-[90px] md:leading-none tracking-tighter mb-10 drop-shadow-2xl flex flex-col items-center gap-6 w-full overflow-hidden py-4">
 
                         <!-- Line 1: Slides from extreme left -->
-                        <div class="relative flex flex-wrap justify-center gap-3 md:gap-4 opacity-100">
+                        <div class="relative flex flex-wrap justify-center gap-3 md:gap-4" data-aos="fade-right" data-aos-duration="1200">
                             <span
                                 class="inline-block bg-[#FA92A5] text-[#232323] px-6 md:px-10 py-3 md:py-4 text-center rounded-full shadow-[0_15px_30px_rgba(0,0,0,0.15),inset_0_4px_10px_rgba(255,255,255,0.4),inset_0_-8px_15px_rgba(0,0,0,0.2)] box-decoration-clone">Transform
                                 Your</span>
@@ -295,7 +306,7 @@
                         </div>
 
                         <!-- Line 2: Slides from extreme right -->
-                        <div class="relative flex flex-wrap justify-center gap-3 md:gap-4 opacity-100">
+                        <div class="relative flex flex-wrap justify-center gap-3 md:gap-4" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
                             <span
                                 class="inline-block italic font-light bg-[#232323] text-[#FA92A5] px-6 md:px-10 py-3 md:py-4 text-center rounded-full shadow-[0_15px_30px_rgba(0,0,0,0.15),inset_0_4px_10px_rgba(255,255,255,0.1),inset_0_-8px_15px_rgba(0,0,0,0.5)] box-decoration-clone">Transform
                                 Your</span>
@@ -306,7 +317,7 @@
                     </h1>
 
                     <!-- Subheading and Button: Slide from bottom -->
-                    <div class="opacity-100 flex flex-col items-center pointer-events-auto">
+                    <div class="flex flex-col items-center pointer-events-auto" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
                         <p
                             class="font-body-lg text-body-lg max-w-md mx-auto text-[#232323] font-medium mb-10 drop-shadow-sm text-center">
                             Redefining luxury artistry through a lens of modern minimalism and soft-lit sophistication.
@@ -326,7 +337,7 @@
         <section class="bg-[#FA92A5] text-white py-margin-desktop px-gutter" id="about">
             <div class="max-w-container-max mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
-                    <div class="md:col-span-5 md:col-start-2 flex flex-col gap-6">
+                    <div class="md:col-span-5 md:col-start-2 flex flex-col gap-6" data-aos="fade-up" data-aos-duration="1000">
                         <span class="font-label-sm text-label-sm text-white/80 uppercase tracking-widest">01 — About
                             Us</span>
                         <h2
@@ -344,7 +355,7 @@
                             serene elegance.
                         </p>
                     </div>
-                    <div class="md:col-span-5 md:col-start-8 relative mt-12 md:mt-0">
+                    <div class="md:col-span-5 md:col-start-8 relative mt-12 md:mt-0" data-aos="fade-left" data-aos-duration="1200">
                         <div class="aspect-[3/4] overflow-hidden relative shadow-2xl">
                             <img class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                                 data-alt="A striking portrait of a woman in a minimalist, light-filled studio. She wears a structured deep purple garment that contrasts sharply with the soft petal pink environment. Her makeup is flawless, emphasizing natural radiance with subtle glass-skin effects. The framing is cinematic and asymmetrical, evoking high-end editorial photography."
@@ -362,7 +373,7 @@
             <div class="absolute bottom-0 left-0 w-full h-[1px] bg-[#232323]/10"></div>
             <div
                 class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-margin-desktop items-center">
-                <div class="order-2 md:order-1 relative h-[614px] md:h-[819px] shadow-2xl">
+                <div class="order-2 md:order-1 relative h-[614px] md:h-[819px] shadow-2xl" data-aos="fade-right" data-aos-duration="1200">
                     <img class="w-full h-full object-cover"
                         data-alt="Abstract macro photography of makeup textures. Swirls of vibrant pink cream blush and deep charcoal eyeliner set against a pure white background. The lighting is soft and airy, highlighting the luxurious, silky finish of the products. The composition is clean, modern, and highly structural."
                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJtI0qno0lgLULsSqC8-vVddtk29081DD9RIdV86c6lVQ2269KTnN6AMI3VUIn3XKZAEAaz0HuYSdm93PZqDgzJWCYtUMUyr_n00k-dyf-FGgBq3I5Ifz5R9fCVGXTKMpQ7tkC2xVfVrUGcWFxTV81nIp3fKSxdZJMOSMIETYEMCvk-g-f9HeDh7l3VVzXCoqZGLiXcRAfUbuaL244JQ4W5nzsGVS0uyjVPgd88bVOjsxMUoZoxzjqRvE3PY6aQBC2H5ykeTTdupw" />
@@ -375,7 +386,7 @@
                             techniques and weightless formulations.</p>
                     </div>
                 </div>
-                <div class="order-1 md:order-2 flex flex-col justify-center max-w-lg">
+                <div class="order-1 md:order-2 flex flex-col justify-center max-w-lg" data-aos="fade-left" data-aos-duration="1200">
                     <span class="font-label-sm text-label-sm text-[#232323]/60 uppercase tracking-widest mb-6">02 — Our
                         Mission</span>
                     <h2
@@ -398,7 +409,7 @@
 
         <!-- Client Experiences (Google Reviews) -->
         <section class="bg-[#FA92A5] text-white py-margin-desktop px-gutter" id="testimonials">
-            <div class="max-w-container-max mx-auto">
+            <div class="max-w-container-max mx-auto" data-aos="fade-up" data-aos-duration="1000">
                 <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                     <div>
                         <span class="font-label-sm text-label-sm text-white/80 uppercase tracking-widest mb-4 block">03
@@ -424,7 +435,7 @@
         <section class="bg-white text-[#232323] py-margin-desktop px-gutter border-t border-[#232323]/10" id="location">
             <div class="max-w-container-max mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-                    <div class="flex flex-col space-y-10">
+                    <div class="flex flex-col space-y-10" data-aos="fade-right" data-aos-duration="1000">
                         <div>
                             <span
                                 class="font-label-sm text-label-sm text-[#232323]/60 uppercase tracking-widest mb-4 block">04
@@ -475,7 +486,7 @@
                     </div>
                     <!-- Map / Visual Representation -->
                     <div
-                        class="relative h-[400px] md:h-[500px] w-full overflow-hidden rounded-3xl border border-[#232323]/10 group shadow-2xl bg-[#f5f5f5]">
+                        class="relative h-[400px] md:h-[500px] w-full overflow-hidden rounded-3xl border border-[#232323]/10 group shadow-2xl bg-[#f5f5f5]" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
                         <iframe
                             src="https://maps.google.com/maps?q=Ave%20Maria%20Rd,%20Negombo%2011410&t=&z=15&ie=UTF8&iwloc=&output=embed"
                             width="100%" height="100%" style="border:0; filter: grayscale(80%) contrast(1.1);"
@@ -651,6 +662,40 @@
                 }, 1200);
             }, { passive: true });
         }
+
+        // Native Vanilla JS Intersection Observer
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show-on-scroll');
+                        observer.unobserve(entry.target); // Trigger only once
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            // Target all elements that were set up for AOS
+            document.querySelectorAll('[data-aos]').forEach(el => {
+                el.classList.add('observe-me'); // Apply initial hidden state
+                
+                // Read and apply inline transition delays if specified
+                const delay = el.getAttribute('data-aos-delay');
+                if (delay) {
+                    el.style.transitionDelay = `${delay}ms`;
+                }
+                
+                // Read and apply inline transition durations if specified
+                const duration = el.getAttribute('data-aos-duration');
+                if (duration) {
+                    el.style.transitionDuration = `${duration}ms`;
+                }
+                
+                observer.observe(el);
+            });
+        });
     </script>
 </body>
 
