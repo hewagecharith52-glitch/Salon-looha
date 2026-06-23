@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumina Artistry | High-End Beauty Salon</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#fcf9f8",
+                        "on-primary": "#ffffff",
+                        "secondary": "#5d5f5f",
+                        "background": "#fcf9f8",
+                        "outline": "#877274",
+                        "on-error": "#ffffff",
+                        "surface-container": "#f0eded",
+                        "secondary-fixed": "#e2e2e2",
+                        "on-surface": "#1b1c1c",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-container": "#fa92a5",
+                        "inverse-surface": "#303030",
+                        "surface": "#fcf9f8",
+                        "surface-container-high": "#eae7e7",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "secondary-container": "#dfe0e0",
+                        "tertiary-container": "#bcadb0",
+                        "on-tertiary-fixed": "#22191c",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#75283b",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#616363",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "on-primary-fixed-variant": "#7a2b3e",
+                        "surface-dim": "#dcd9d9",
+                        "outline-variant": "#d9c1c3",
+                        "on-tertiary-fixed-variant": "#4f4447",
+                        "tertiary": "#675b5e",
+                        "on-tertiary-container": "#4b4143",
+                        "primary": "#984355",
+                        "inverse-primary": "#ffb2be",
+                        "on-surface-variant": "#544245",
+                        "tertiary-fixed-dim": "#d2c3c6",
+                        "tertiary-fixed": "#efdee1",
+                        "surface-tint": "#984355",
+                        "primary-fixed-dim": "#ffb2be",
+                        "on-primary-fixed": "#400014",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e5e2e1",
+                        "primary-fixed": "#ffd9de",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#454747",
+                        "on-background": "#1b1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "title-md": ["20px", { "lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "display-lg": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 0.5px solid rgba(27, 28, 28, 0.1);
+        }
+        .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 1px #1b1c1c;
+        }
+    </style>
+</head>
+<body class="bg-white text-on-background font-body-md antialiased overflow-x-hidden selection:bg-[#232323] selection:text-white">
+<!-- TopNavBar -->
+<header class="bg-white/90 backdrop-blur-xl fixed top-0 w-full border-b border-[#232323]/10 z-50">
+<div class="flex justify-between items-center h-20 px-gutter max-w-container-max mx-auto">
+<a class="font-headline-md text-headline-md text-[#232323] tracking-tighter cursor-pointer active:scale-95 transition-transform" href="#">LUMINA</a>
+<nav class="hidden md:flex gap-8 items-center font-label-sm text-label-sm uppercase tracking-widest">
+<a class="text-[#232323] border-b border-[#232323] pb-1 cursor-pointer transition-transform active:scale-95" href="#about">About</a>
+<a class="text-[#232323]/70 hover:text-[#232323] transition-all duration-300 cursor-pointer active:scale-95" href="#mission">Mission</a>
+<a class="text-[#232323]/70 hover:text-[#232323] transition-all duration-300 cursor-pointer active:scale-95" href="#testimonials">Testimonials</a>
+<a class="text-[#232323]/70 hover:text-[#232323] transition-all duration-300 cursor-pointer active:scale-95" href="#location">Location</a>
+</nav>
+<button class="bg-[#232323] text-white font-label-sm text-label-sm uppercase tracking-widest py-3 px-6 rounded-none hover:bg-primary-container hover:text-[#232323] transition-colors duration-300 cursor-pointer active:scale-95 hidden md:block">
+                BOOK NOW
+            </button>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-[#232323]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex flex-col items-center justify-center px-gutter bg-white overflow-hidden py-20">
+<div class="relative z-10 max-w-container-max mx-auto w-full flex flex-col items-center text-center mb-16">
+<h1 class="font-display-lg text-display-lg md:text-[100px] md:leading-[100px] text-[#232323] tracking-tighter mb-6">
+                    Transform Your Look.<br/><span class="italic font-light">Transform Your Life.</span>
+</h1>
+<p class="font-body-lg text-body-lg max-w-md mx-auto text-[#232323]/80 mb-10">
+                    Redefining luxury artistry through a lens of modern minimalism and soft-lit sophistication.
+                </p>
+<button class="bg-transparent border border-[#232323] text-[#232323] font-label-sm text-label-sm uppercase py-4 px-8 tracking-widest hover:bg-[#232323] hover:text-white transition-all duration-300">
+                    Discover More
+                </button>
+</div>
+<div class="relative w-full max-w-5xl mx-auto aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-2xl shadow-2xl">
+<img class="w-full h-full object-cover object-center" data-alt="A high-fashion editorial close-up of a model's profile against a vibrant pink backdrop. The lighting is soft yet dramatic, highlighting flawless skin and elegant makeup details. Deep charcoal shadows create a moody, sophisticated atmosphere. Hints of blue denim add a textured, raw contrast to the ethereal pink setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7WO3SxNEa7Ev6M8QTXkUFZpNKZ166OeaaSuLpPYtdb00QJugq0st9e9ibcKus0PGmBjS1Nq5E2mhgRwiH7I66o1PCy7QsIpCRX6UT0niXCLA6SvOB4FhXZpe8VcYy3ZLZeKaYsLKAH1O7p71aCazEu5dzmwKMkDGu1p0Y51XfaV4gsEAcQ0v_YmB2IlfVJ9U8cYLrQ6MPu6r2agsNfs2zdiPt0cNbWMF587NyoGui37bY9E05DH7CHIGhqD-ZU9VJIA_porAwYYQ"/>
+</div>
+</section>
+<!-- About Us (High-Fashion Editorial Style) -->
+<section class="bg-[#FA92A5] text-white py-margin-desktop px-gutter" id="about">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5 md:col-start-2 flex flex-col gap-6">
+<span class="font-label-sm text-label-sm text-white/80 uppercase tracking-widest">01 — About Us</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white">
+                        Curated Artistry for the Modern Muse.
+                    </h2>
+<p class="font-body-md text-body-md text-white/90">
+                        Lumina Artistry steps away from the conventional, embracing an 'ethereal editorial' aesthetic. We blend minimalism with high-end techniques, creating a space where expansive white elegance meets soft-lit rose accents.
+                    </p>
+<p class="font-body-md text-body-md text-white/90">
+                        Our approach is deeply personal, treating every client as a canvas for sophisticated, light-filled beauty. It is not just about transformation; it is about revealing your innate, serene elegance.
+                    </p>
+</div>
+<div class="md:col-span-5 md:col-start-8 relative mt-12 md:mt-0">
+<div class="aspect-[3/4] overflow-hidden relative shadow-2xl">
+<img class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" data-alt="A striking portrait of a woman in a minimalist, light-filled studio. She wears a structured deep purple garment that contrasts sharply with the soft petal pink environment. Her makeup is flawless, emphasizing natural radiance with subtle glass-skin effects. The framing is cinematic and asymmetrical, evoking high-end editorial photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUUM4G_3KSY2hfz7I-I2xKpNrQBFGPrfExk976EiW7vw32ZL8d_l0za2AOYGApsdjtB-ZP3AKQ-7BdeVitTTSFV62Nsh-0KXhTR7-R2f5t3aP9M8RdYtQbFmVCVMF9uUGxYdmcWYeutAcc-oP0DIb5tPqK8r0b1VKm2jDWgKJz_fIBC_HmtobLUTFOlvndQw0jqgGhc5riUQxuzZ3LUwpHxQvuzfN91lg2HQM-llTJFkIiqhYq9nnwelpFcjaoKCZEexpz-Ljfwow"/>
+<div class="absolute -bottom-6 -left-6 w-32 h-32 bg-white/20 rounded-full blur-2xl"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Our Mission -->
+<section class="bg-white text-[#232323] py-margin-desktop relative overflow-hidden" id="mission">
+<!-- Decorative thin lines -->
+<div class="absolute top-0 left-0 w-full h-[1px] bg-[#232323]/10"></div>
+<div class="absolute bottom-0 left-0 w-full h-[1px] bg-[#232323]/10"></div>
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-margin-desktop items-center">
+<div class="order-2 md:order-1 relative h-[614px] md:h-[819px] shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="Abstract macro photography of makeup textures. Swirls of vibrant pink cream blush and deep charcoal eyeliner set against a pure white background. The lighting is soft and airy, highlighting the luxurious, silky finish of the products. The composition is clean, modern, and highly structural." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJtI0qno0lgLULsSqC8-vVddtk29081DD9RIdV86c6lVQ2269KTnN6AMI3VUIn3XKZAEAaz0HuYSdm93PZqDgzJWCYtUMUyr_n00k-dyf-FGgBq3I5Ifz5R9fCVGXTKMpQ7tkC2xVfVrUGcWFxTV81nIp3fKSxdZJMOSMIETYEMCvk-g-f9HeDh7l3VVzXCoqZGLiXcRAfUbuaL244JQ4W5nzsGVS0uyjVPgd88bVOjsxMUoZoxzjqRvE3PY6aQBC2H5ykeTTdupw"/>
+<!-- Glassmorphism overlay card -->
+<div class="absolute bottom-8 right-8 left-8 md:left-auto md:-right-12 md:bottom-16 w-auto md:w-80 bg-white/70 backdrop-blur-md border border-[#232323]/10 p-8 shadow-xl text-[#232323]">
+<span class="material-symbols-outlined text-[#FA92A5] mb-4" style="font-variation-settings: 'FILL' 1;">spa</span>
+<h3 class="font-title-md text-title-md mb-2">Purity in Practice</h3>
+<p class="font-body-md text-sm text-[#232323]/90">Elevating raw beauty through meticulous techniques and weightless formulations.</p>
+</div>
+</div>
+<div class="order-1 md:order-2 flex flex-col justify-center max-w-lg">
+<span class="font-label-sm text-label-sm text-[#232323]/60 uppercase tracking-widest mb-6">02 — Our Mission</span>
+<h2 class="font-display-lg text-5xl md:text-[80px] leading-none mb-8 text-[#232323] tracking-tighter">
+                        To Inspire<br/>Serenity.
+                    </h2>
+<div class="space-y-6 border-l border-[#FA92A5] pl-6 ml-2">
+<p class="font-body-lg text-body-lg text-[#232323] italic">
+                            "We believe true luxury is found in weightlessness. Our mission is to strip away the unnecessary, leaving only refined, luminous beauty."
+                        </p>
+<p class="font-body-md text-body-md text-[#232323]/80">
+                            Every brushstroke is intentional. We curate an environment that feels like a deep breath—calm, focused, and utterly devoted to your elevated aesthetic.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- What Our Clients Say (Cinematic Gallery) -->
+<section class="bg-[#FA92A5] text-white py-margin-desktop px-gutter" id="testimonials">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div>
+<span class="font-label-sm text-label-sm text-white/80 uppercase tracking-widest mb-4 block">03 — Voices</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white">
+                            Client Experiences.
+                        </h2>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full border border-white/50 flex items-center justify-center text-white hover:bg-white hover:text-[#FA92A5] transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-white/50 flex items-center justify-center text-white hover:bg-white hover:text-[#FA92A5] transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Bento Grid Layout for Testimonials -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+<!-- Testimonial 1: Large Image + Text Overlay -->
+<div class="md:col-span-2 relative group overflow-hidden bg-black/10 border border-white/20">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A sophisticated woman with a sleek, minimalist hairstyle and glowing makeup, looking thoughtfully off-camera. She is set against a soft petal pink and charcoal background. The lighting is cinematic, mimicking natural golden hour light filtering through a window, creating a serene, elegant mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNdQvjXrG-NdHIJlZi8rLBBkPtyFnx50MV5_-dcOH-Hl8oTM4lqxFlA5BnlAeIXGUoHjiV0iEs66KUXFWpDruXJheHSt4InEMusDuaTi9NiO8_1-38NFooyy6DmiONyqQ68o1SL0SECvOPA-BB283J0xRRbXUkAPCIQptfgr6cEh9kPZThh0ND1jihozuAUFERK8TtC8-YZf7CipYCWarAHsm7FahlLw_pES_UwGC6Ryrh2llGEdci3hYFzGH3Q2V9jz34_oMXv2M"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full md:w-2/3">
+<p class="font-body-lg text-white mb-4 italic">"An absolute masterclass in refined beauty. The studio itself is an ethereal escape, and the results are consistently breathtaking."</p>
+<span class="font-label-sm text-white/80 uppercase tracking-widest">— Elena R.</span>
+</div>
+</div>
+<!-- Testimonial 2: Text Focus -->
+<div class="bg-white/10 border border-white/30 p-8 flex flex-col justify-between hover:bg-white/20 transition-colors backdrop-blur-sm">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<p class="font-body-md text-white my-auto">
+                            I've never felt so seen by an artist. They understand the balance between striking editorial looks and wearable elegance perfectly.
+                        </p>
+<span class="font-label-sm text-white/80 uppercase tracking-widest border-t border-white/30 pt-4 mt-4">— Sarah M.</span>
+</div>
+<!-- Testimonial 3: Image -->
+<div class="relative overflow-hidden group border border-white/20">
+<img class="absolute inset-0 w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 transition-all duration-700" data-alt="A close-up detail shot of an elegant hand holding a delicate glass bottle of perfume against a pure white background. Subtle reflections and soft pink lighting accents highlight the luxurious texture of the glass and the serene atmosphere of the salon environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACNCuw_s6LK0B9sOosfLfzxk6YtSi5oUEdA7KB0ogrUsl_7EHuPt8xHCJ1o_cH0RMCdMPvik4gShaAdkjJleVd1gaStfjwdnCRLoARwu8fErWLqS1i2IjymB_30qjXFsWyDsoSJq3Wds5LQZP3x83ATo1lBkOTR6oG3mQFUdZB4jjcglRJw3q9Pvx9bCcmmqj5zb_VKej46ztlLk9grAVJp5HkdeG_wLLs5_YLRvgxMw4hQBvoDIlhZUCFNx-eBZvs5ineGU7FTuk"/>
+</div>
+<!-- Testimonial 4: Text Focus -->
+<div class="md:col-span-2 bg-white text-[#FA92A5] p-8 flex flex-col md:flex-row items-center gap-8 shadow-xl">
+<div class="flex-1">
+<h3 class="font-title-md text-title-md mb-4 text-[#232323]">The Lumina Standard</h3>
+<p class="font-body-md text-[#232323]/80">
+                                "The attention to detail is unmatched. From the ambient lighting to the final touch of gloss, every step feels curated for absolute perfection."
+                            </p>
+<span class="font-label-sm uppercase tracking-widest block mt-6 text-[#232323]/60">— Chloe T.</span>
+</div>
+<div class="w-24 h-24 rounded-full border border-[#FA92A5]/50 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-4xl font-light text-[#FA92A5]">star</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Location & Contact -->
+<section class="bg-white text-[#232323] py-margin-desktop px-gutter border-t border-[#232323]/10" id="location">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+<div class="flex flex-col space-y-10">
+<div>
+<span class="font-label-sm text-label-sm text-[#232323]/60 uppercase tracking-widest mb-4 block">04 — Sanctuary</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-[#232323] mb-6">
+                            Find Your Light.
+                        </h2>
+<p class="font-body-md text-body-md text-[#232323]/80 max-w-md">
+                            Located in the heart of the design district, our studio is a minimalist haven designed for focus and tranquility.
+                        </p>
+</div>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-[#FA92A5] mt-1">location_on</span>
+<div>
+<h4 class="font-title-md text-base mb-1 text-[#232323]">The Studio</h4>
+<p class="font-body-md text-sm text-[#232323]/80">124 Ethereal Lane, Suite 300<br/>Design District, NY 10001</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-[#FA92A5] mt-1">mail</span>
+<div>
+<h4 class="font-title-md text-base mb-1 text-[#232323]">Inquiries</h4>
+<p class="font-body-md text-sm text-[#232323]/80">hello@luminaartistry.com</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-[#FA92A5] mt-1">schedule</span>
+<div>
+<h4 class="font-title-md text-base mb-1 text-[#232323]">Hours</h4>
+<p class="font-body-md text-sm text-[#232323]/80">Tuesday – Saturday<br/>10:00 AM – 7:00 PM</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Map / Visual Representation -->
+<div class="relative h-[500px] bg-[#232323]/5 overflow-hidden border border-[#232323]/10 group shadow-2xl">
+<img class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500" data-alt="A stylized, high-contrast map interface showing the New York Design District. The map uses a minimalist color palette of white, soft petal pink, and deep charcoal roads. The design is clean, removing unnecessary clutter to focus on an elegant, premium aesthetic suitable for a luxury brand's location page." data-location="New York" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwmOAEveRCWkKui9MaudDIzMms7SM48v7WckvIEyzcjx0qM9ciJC_CAS2BYh5dVANtbHpjBmRIJlplgO-Zvn0BftFnGSwOF2htjSW6SKMC629LVtNR0CU-bVa6I8LSmJBMKQwa5tBwlT4hPhfvr0i-hctb2eF_4_AhkGelQOp50vntLZJZocXjcqoaop1OhFEyZ2lI5gm_VZJjwRJiE38_a7gT0zWMC5EQoTw3irz36Hyy-Wj-ZTca5cykyiBaNYzBz4Eh0nGia2Q"/>
+<!-- Overlay Marker -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="w-16 h-16 bg-[#FA92A5]/30 rounded-full animate-ping absolute"></div>
+<div class="w-4 h-4 bg-[#FA92A5] rounded-full border-2 border-white relative z-10 shadow-[0_0_15px_rgba(250,146,165,0.5)]"></div>
+<div class="bg-white/90 backdrop-blur-md border border-white/50 mt-4 px-4 py-2 font-label-sm text-[10px] uppercase tracking-widest text-[#232323] whitespace-nowrap shadow-lg">
+                            Lumina Artistry
+                        </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white w-full py-section-padding-mobile md:py-16 border-t border-[#232323]/10">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 px-gutter max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md text-[#232323] tracking-tighter">
+                LUMINA
+            </div>
+<div class="flex flex-col md:flex-row items-center gap-6 md:gap-12 text-center">
+<nav class="flex gap-6 font-label-caps text-label-caps text-[#232323]/70">
+<a class="underline-offset-4 hover:underline hover:text-[#FA92A5] transition-colors text-[#232323]" href="#">Privacy Policy</a>
+<a class="underline-offset-4 hover:underline hover:text-[#FA92A5] transition-colors" href="#">Terms of Service</a>
+<a class="underline-offset-4 hover:underline hover:text-[#FA92A5] transition-colors" href="#">Press</a>
+</nav>
+</div>
+<div class="flex items-center gap-4 text-[#232323]">
+<a aria-label="Instagram" class="hover:text-[#FA92A5] transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+</a>
+<a aria-label="Facebook" class="hover:text-[#FA92A5] transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">share</span>
+</a>
+</div>
+<div class="w-full md:w-auto text-center font-label-caps text-[10px] text-[#232323]/60 tracking-widest mt-4 md:mt-0 md:absolute md:left-1/2 md:-translate-x-1/2">
+                © 2024 LUMINA ARTISTRY. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+</body></html>

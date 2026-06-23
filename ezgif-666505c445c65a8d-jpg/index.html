@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Salon Looha | High-End Beauty Salon</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#fcf9f8",
+                        "on-primary": "#ffffff",
+                        "secondary": "#5d5f5f",
+                        "background": "#fcf9f8",
+                        "outline": "#877274",
+                        "on-error": "#ffffff",
+                        "surface-container": "#f0eded",
+                        "secondary-fixed": "#e2e2e2",
+                        "on-surface": "#1b1c1c",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-container": "#fa92a5",
+                        "inverse-surface": "#303030",
+                        "surface": "#fcf9f8",
+                        "surface-container-high": "#eae7e7",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e5e2e1",
+                        "secondary-container": "#dfe0e0",
+                        "tertiary-container": "#bcadb0",
+                        "on-tertiary-fixed": "#22191c",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#75283b",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#616363",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "on-primary-fixed-variant": "#7a2b3e",
+                        "surface-dim": "#dcd9d9",
+                        "outline-variant": "#d9c1c3",
+                        "on-tertiary-fixed-variant": "#4f4447",
+                        "tertiary": "#675b5e",
+                        "on-tertiary-container": "#4b4143",
+                        "primary": "#984355",
+                        "inverse-primary": "#ffb2be",
+                        "on-surface-variant": "#544245",
+                        "tertiary-fixed-dim": "#d2c3c6",
+                        "tertiary-fixed": "#efdee1",
+                        "surface-tint": "#984355",
+                        "primary-fixed-dim": "#ffb2be",
+                        "on-primary-fixed": "#400014",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e5e2e1",
+                        "primary-fixed": "#ffd9de",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#454747",
+                        "on-background": "#1b1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "title-md": ["20px", { "lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "display-lg": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 0.5px solid rgba(27, 28, 28, 0.1);
+        }
+
+        .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 1px #1b1c1c;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-white text-on-background font-body-md antialiased overflow-x-clip selection:bg-[#232323] selection:text-white relative">
+
+    <!-- Interactive Mouse Ripples Container -->
+    <div id="ripple-container" class="fixed inset-0 pointer-events-none z-[100] hidden md:block overflow-hidden"></div>
+    <!-- Floating Social Sidebar -->
+    <div
+        class="fixed right-0 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col gap-4 bg-[#232323] p-3 rounded-l-2xl shadow-[0_10px_30px_rgba(0,0,0,0.3)] border border-r-0 border-[#FA92A5]/20">
+        <a href="#"
+            class="text-[#FA92A5] hover:text-white transition-colors duration-300 transform hover:-translate-x-1"
+            aria-label="Instagram">
+            <span class="material-symbols-outlined text-2xl"
+                style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+        </a>
+        <div class="w-full h-px bg-[#FA92A5]/20"></div>
+        <a href="#"
+            class="text-[#FA92A5] hover:text-white transition-colors duration-300 transform hover:-translate-x-1"
+            aria-label="Facebook">
+            <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">share</span>
+        </a>
+        <div class="w-full h-px bg-[#FA92A5]/20"></div>
+        <a href="#"
+            class="text-[#FA92A5] hover:text-white transition-colors duration-300 transform hover:-translate-x-1"
+            aria-label="Twitter">
+            <span class="material-symbols-outlined text-2xl"
+                style="font-variation-settings: 'FILL' 1;">alternate_email</span>
+        </a>
+    </div>
+
+    <!-- TopNavBar -->
+    <header class="bg-white/90 backdrop-blur-xl fixed top-0 w-full border-b border-[#232323]/10 z-50">
+        <div class="flex justify-between items-center h-20 px-gutter max-w-container-max mx-auto">
+            <a class="font-headline-md text-headline-md text-[#232323] tracking-tighter cursor-pointer active:scale-95 transition-transform"
+                href="#">SALON LOOHA</a>
+            <nav class="hidden md:flex gap-8 items-center font-label-sm text-label-sm uppercase tracking-widest">
+                <a class="text-[#232323] border-b border-[#232323] pb-1 cursor-pointer transition-transform active:scale-95"
+                    href="#about">About</a>
+                <a class="text-[#232323]/70 hover:text-[#232323] transition-all duration-300 cursor-pointer active:scale-95"
+                    href="#mission">Mission</a>
+                <a class="text-[#232323]/70 hover:text-[#232323] transition-all duration-300 cursor-pointer active:scale-95"
+                    href="#testimonials">Client Experiences</a>
+                <a class="text-[#232323]/70 hover:text-[#232323] transition-all duration-300 cursor-pointer active:scale-95"
+                    href="#location">Location</a>
+            </nav>
+            <button
+                class="bg-[#232323] text-white font-label-sm text-label-sm uppercase tracking-widest py-3 px-6 rounded-none hover:bg-primary-container hover:text-[#232323] transition-colors duration-300 cursor-pointer active:scale-95 hidden md:block">
+                BOOK NOW
+            </button>
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" class="md:hidden text-[#232323]">
+                <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 0;">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-50 bg-white/95 backdrop-blur-3xl transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col items-center justify-center gap-8 md:hidden">
+        <button id="mobile-menu-close"
+            class="absolute top-8 right-8 text-[#232323] hover:text-[#FA92A5] transition-colors">
+            <span class="material-symbols-outlined text-4xl">close</span>
+        </button>
+        <nav class="flex flex-col items-center gap-8 font-label-sm text-2xl uppercase tracking-widest mt-10">
+            <a class="text-[#232323] hover:text-[#FA92A5] transition-colors mobile-link" href="#about">About</a>
+            <a class="text-[#232323] hover:text-[#FA92A5] transition-colors mobile-link" href="#mission">Mission</a>
+            <a class="text-[#232323] hover:text-[#FA92A5] transition-colors mobile-link" href="#testimonials">Client
+                Experiences</a>
+            <a class="text-[#232323] hover:text-[#FA92A5] transition-colors mobile-link" href="#location">Location</a>
+        </nav>
+        <button
+            class="bg-[#232323] text-white font-label-sm text-lg uppercase tracking-widest py-4 px-12 rounded-full hover:bg-[#FA92A5] hover:text-[#232323] transition-colors duration-300 mt-8 mobile-link">
+            BOOK NOW
+        </button>
+    </div>
+
+    <main class="pt-20">
+        <style>
+            @keyframes slideInLeft {
+                0% {
+                    transform: translateX(-150vw);
+                    opacity: 0;
+                }
+
+                60% {
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+
+            @keyframes slideInRight {
+                0% {
+                    transform: translateX(150vw);
+                    opacity: 0;
+                }
+
+                60% {
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+
+            @keyframes slideUpFade {
+                0% {
+                    transform: translateY(40px);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+
+            /* Interactive Mouse Ripples */
+            .mouse-ripple {
+                position: absolute;
+                border-radius: 50%;
+                transform: translate(-50%, -50%) scale(0.2);
+                animation: ripple-expand 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+                border: 1px solid rgba(250, 146, 165, 0.4);
+                background: radial-gradient(circle, rgba(250, 146, 165, 0.08) 0%, rgba(250, 146, 165, 0) 70%);
+                pointer-events: none;
+                z-index: 9999;
+            }
+
+            @keyframes ripple-expand {
+                0% {
+                    transform: translate(-50%, -50%) scale(0.2);
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translate(-50%, -50%) scale(2.5);
+                    opacity: 0;
+                }
+            }
+        </style>
+
+        <!-- Hero Title & Scroll Animation Section -->
+        <div id="animation-container" style="height: 500vh; position: relative; background-color: #000;">
+            <div class="sticky-canvas-container"
+                style="position: sticky; top: 0; width: 100%; height: 100vh; overflow: hidden; background-color: #000; z-index: 10;">
+                <div class="loading" id="loading"
+                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-family: sans-serif; font-size: 24px; z-index: 30;">
+                    Loading... 0%
+                </div>
+                <canvas id="scroll-canvas"
+                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100vw; height: 100vh; object-fit: cover; opacity: 0.85;"></canvas>
+
+                <!-- Light Gradient Overlay for Dark Text Readability -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-white/70 via-white/20 to-white/70 z-10 pointer-events-none">
+                </div>
+
+                <!-- Animated Typography Block -->
+                <div
+                    class="absolute inset-0 z-20 flex flex-col items-center justify-center px-gutter pt-10 pointer-events-none w-full max-w-container-max mx-auto">
+
+                    <h1
+                        class="font-display-lg text-display-lg md:text-[90px] md:leading-none tracking-tighter mb-10 drop-shadow-2xl flex flex-col items-center gap-6 w-full overflow-hidden py-4">
+
+                        <!-- Line 1: Slides from extreme left -->
+                        <div class="relative flex flex-wrap justify-center gap-3 md:gap-4 opacity-0"
+                            style="animation: slideInLeft 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;">
+                            <span
+                                class="inline-block bg-[#FA92A5] text-[#232323] px-6 md:px-10 py-3 md:py-4 text-center rounded-full shadow-[0_15px_30px_rgba(0,0,0,0.15),inset_0_4px_10px_rgba(255,255,255,0.4),inset_0_-8px_15px_rgba(0,0,0,0.2)] box-decoration-clone">Transform
+                                Your</span>
+                            <span
+                                class="inline-block bg-[#232323] text-[#FA92A5] px-6 md:px-10 py-3 md:py-4 text-center rounded-full shadow-[0_15px_30px_rgba(0,0,0,0.15),inset_0_4px_10px_rgba(255,255,255,0.1),inset_0_-8px_15px_rgba(0,0,0,0.5)] box-decoration-clone">Look.</span>
+                        </div>
+
+                        <!-- Line 2: Slides from extreme right -->
+                        <div class="relative flex flex-wrap justify-center gap-3 md:gap-4 opacity-0"
+                            style="animation: slideInRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;">
+                            <span
+                                class="inline-block italic font-light bg-[#232323] text-[#FA92A5] px-6 md:px-10 py-3 md:py-4 text-center rounded-full shadow-[0_15px_30px_rgba(0,0,0,0.15),inset_0_4px_10px_rgba(255,255,255,0.1),inset_0_-8px_15px_rgba(0,0,0,0.5)] box-decoration-clone">Transform
+                                Your</span>
+                            <span
+                                class="inline-block italic font-light bg-[#FA92A5] text-[#232323] px-6 md:px-10 py-3 md:py-4 text-center rounded-full shadow-[0_15px_30px_rgba(0,0,0,0.15),inset_0_4px_10px_rgba(255,255,255,0.4),inset_0_-8px_15px_rgba(0,0,0,0.2)] box-decoration-clone">Life.</span>
+                        </div>
+
+                    </h1>
+
+                    <!-- Subheading and Button: Slide from bottom -->
+                    <div class="opacity-0 flex flex-col items-center pointer-events-auto"
+                        style="animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;">
+                        <p
+                            class="font-body-lg text-body-lg max-w-md mx-auto text-[#232323] font-medium mb-10 drop-shadow-sm text-center">
+                            Redefining luxury artistry through a lens of modern minimalism and soft-lit sophistication.
+                        </p>
+                        <a href="tel:0776201254"
+                            class="inline-block bg-[#FA92A5] text-[#232323] font-bold text-base md:text-lg uppercase py-5 px-12 tracking-widest hover:bg-[#232323] hover:text-[#FA92A5] transition-all duration-300 shadow-2xl rounded-full">
+                            Contact Us
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- End Hero & Scroll Animation Section -->
+
+        <!-- About Us (High-Fashion Editorial Style) -->
+        <section class="bg-[#FA92A5] text-white py-margin-desktop px-gutter" id="about">
+            <div class="max-w-container-max mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+                    <div class="md:col-span-5 md:col-start-2 flex flex-col gap-6">
+                        <span class="font-label-sm text-label-sm text-white/80 uppercase tracking-widest">01 — About
+                            Us</span>
+                        <h2
+                            class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white">
+                            Curated Artistry for the Modern Muse.
+                        </h2>
+                        <p class="font-body-md text-body-md text-white/90">
+                            Lumina Artistry steps away from the conventional, embracing an 'ethereal editorial'
+                            aesthetic. We blend minimalism with high-end techniques, creating a space where expansive
+                            white elegance meets soft-lit rose accents.
+                        </p>
+                        <p class="font-body-md text-body-md text-white/90">
+                            Our approach is deeply personal, treating every client as a canvas for sophisticated,
+                            light-filled beauty. It is not just about transformation; it is about revealing your innate,
+                            serene elegance.
+                        </p>
+                    </div>
+                    <div class="md:col-span-5 md:col-start-8 relative mt-12 md:mt-0">
+                        <div class="aspect-[3/4] overflow-hidden relative shadow-2xl">
+                            <img class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                                data-alt="A striking portrait of a woman in a minimalist, light-filled studio. She wears a structured deep purple garment that contrasts sharply with the soft petal pink environment. Her makeup is flawless, emphasizing natural radiance with subtle glass-skin effects. The framing is cinematic and asymmetrical, evoking high-end editorial photography."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUUM4G_3KSY2hfz7I-I2xKpNrQBFGPrfExk976EiW7vw32ZL8d_l0za2AOYGApsdjtB-ZP3AKQ-7BdeVitTTSFV62Nsh-0KXhTR7-R2f5t3aP9M8RdYtQbFmVCVMF9uUGxYdmcWYeutAcc-oP0DIb5tPqK8r0b1VKm2jDWgKJz_fIBC_HmtobLUTFOlvndQw0jqgGhc5riUQxuzZ3LUwpHxQvuzfN91lg2HQM-llTJFkIiqhYq9nnwelpFcjaoKCZEexpz-Ljfwow" />
+                            <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-white/20 rounded-full blur-2xl"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Mission -->
+        <section class="bg-white text-[#232323] py-margin-desktop relative overflow-hidden" id="mission">
+            <div class="absolute top-0 left-0 w-full h-[1px] bg-[#232323]/10"></div>
+            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-[#232323]/10"></div>
+            <div
+                class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-margin-desktop items-center">
+                <div class="order-2 md:order-1 relative h-[614px] md:h-[819px] shadow-2xl">
+                    <img class="w-full h-full object-cover"
+                        data-alt="Abstract macro photography of makeup textures. Swirls of vibrant pink cream blush and deep charcoal eyeliner set against a pure white background. The lighting is soft and airy, highlighting the luxurious, silky finish of the products. The composition is clean, modern, and highly structural."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJtI0qno0lgLULsSqC8-vVddtk29081DD9RIdV86c6lVQ2269KTnN6AMI3VUIn3XKZAEAaz0HuYSdm93PZqDgzJWCYtUMUyr_n00k-dyf-FGgBq3I5Ifz5R9fCVGXTKMpQ7tkC2xVfVrUGcWFxTV81nIp3fKSxdZJMOSMIETYEMCvk-g-f9HeDh7l3VVzXCoqZGLiXcRAfUbuaL244JQ4W5nzsGVS0uyjVPgd88bVOjsxMUoZoxzjqRvE3PY6aQBC2H5ykeTTdupw" />
+                    <div
+                        class="absolute bottom-8 right-8 left-8 md:left-auto md:-right-12 md:bottom-16 w-auto md:w-80 bg-white/70 backdrop-blur-md border border-[#232323]/10 p-8 shadow-xl text-[#232323]">
+                        <span class="material-symbols-outlined text-[#FA92A5] mb-4"
+                            style="font-variation-settings: 'FILL' 1;">spa</span>
+                        <h3 class="font-title-md text-title-md mb-2">Purity in Practice</h3>
+                        <p class="font-body-md text-sm text-[#232323]/90">Elevating raw beauty through meticulous
+                            techniques and weightless formulations.</p>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 flex flex-col justify-center max-w-lg">
+                    <span class="font-label-sm text-label-sm text-[#232323]/60 uppercase tracking-widest mb-6">02 — Our
+                        Mission</span>
+                    <h2
+                        class="font-display-lg text-5xl md:text-[80px] leading-none mb-8 text-[#232323] tracking-tighter">
+                        To Inspire<br />Serenity.
+                    </h2>
+                    <div class="space-y-6 border-l border-[#FA92A5] pl-6 ml-2">
+                        <p class="font-body-lg text-body-lg text-[#232323] italic">
+                            "We believe true luxury is found in weightlessness. Our mission is to strip away the
+                            unnecessary, leaving only refined, luminous beauty."
+                        </p>
+                        <p class="font-body-md text-body-md text-[#232323]/80">
+                            Every brushstroke is intentional. We curate an environment that feels like a deep
+                            breath—calm, focused, and utterly devoted to your elevated aesthetic.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Client Experiences (Google Reviews) -->
+        <section class="bg-[#FA92A5] text-white py-margin-desktop px-gutter" id="testimonials">
+            <div class="max-w-container-max mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                    <div>
+                        <span class="font-label-sm text-label-sm text-white/80 uppercase tracking-widest mb-4 block">03
+                            — Voices</span>
+                        <h2
+                            class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white">
+                            Client Experiences.
+                        </h2>
+                    </div>
+                </div>
+
+                <!-- Google Reviews Widget Container -->
+                <div
+                    class="w-full bg-white rounded-3xl shadow-2xl overflow-hidden border border-white/20 p-2 md:p-6 text-[#232323]">
+                    <!-- Elfsight Google Reviews | Untitled Google Reviews -->
+                    <script src="https://elfsightcdn.com/platform.js" async></script>
+                    <div class="elfsight-app-58c17186-0c0e-41dc-b65f-8665dd1cfcf2" data-elfsight-app-lazy></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location & Contact -->
+        <section class="bg-white text-[#232323] py-margin-desktop px-gutter border-t border-[#232323]/10" id="location">
+            <div class="max-w-container-max mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                    <div class="flex flex-col space-y-10">
+                        <div>
+                            <span
+                                class="font-label-sm text-label-sm text-[#232323]/60 uppercase tracking-widest mb-4 block">04
+                                — Sanctuary</span>
+                            <h2
+                                class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-[#232323] mb-6">
+                                Find Your Light.
+                            </h2>
+                            <p class="font-body-md text-body-md text-[#232323]/80 max-w-md">
+                                Located in the heart of Negombo, our salon is a pristine haven designed for focus,
+                                beauty, and tranquility.
+                            </p>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-[#FA92A5] mt-1">location_on</span>
+                                <div>
+                                    <h4 class="font-title-md text-base mb-1 text-[#232323]">The Salon</h4>
+                                    <p class="font-body-md text-sm text-[#232323]/80">Ave Maria Rd<br />Negombo 11410
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-[#FA92A5] mt-1">call</span>
+                                <div>
+                                    <h4 class="font-title-md text-base mb-1 text-[#232323]">Phone</h4>
+                                    <a href="tel:0776201254"
+                                        class="font-body-md text-sm text-[#232323] hover:text-[#FA92A5] transition-colors duration-300">077
+                                        620 1254</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-[#FA92A5] mt-1">mail</span>
+                                <div>
+                                    <h4 class="font-title-md text-base mb-1 text-[#232323]">Inquiries</h4>
+                                    <p class="font-body-md text-sm text-[#232323]/80">hello@salonlooha.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-[#FA92A5] mt-1">schedule</span>
+                                <div>
+                                    <h4 class="font-title-md text-base mb-1 text-[#232323]">Hours</h4>
+                                    <p class="font-body-md text-sm text-[#232323]/80">Tuesday – Saturday<br />10:00 AM –
+                                        7:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Map / Visual Representation -->
+                    <div
+                        class="relative h-[400px] md:h-[500px] w-full overflow-hidden rounded-3xl border border-[#232323]/10 group shadow-2xl bg-[#f5f5f5]">
+                        <iframe
+                            src="https://maps.google.com/maps?q=Ave%20Maria%20Rd,%20Negombo%2011410&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                            width="100%" height="100%" style="border:0; filter: grayscale(80%) contrast(1.1);"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white w-full py-section-padding-mobile md:py-16 border-t border-[#232323]/10">
+        <div
+            class="flex flex-col md:flex-row justify-between items-center gap-8 px-gutter max-w-container-max mx-auto mb-8 md:mb-12">
+            <div class="font-headline-md text-headline-md text-[#232323] tracking-tighter shrink-0">
+                SALON LOOHA
+            </div>
+            <nav
+                class="flex flex-wrap justify-center items-center gap-5 md:gap-8 font-label-caps text-label-caps text-[#232323]/70">
+                <a class="underline-offset-4 hover:underline hover:text-[#FA92A5] transition-colors text-[#232323] whitespace-nowrap"
+                    href="#">Privacy Policy</a>
+                <a class="underline-offset-4 hover:underline hover:text-[#FA92A5] transition-colors whitespace-nowrap"
+                    href="#">Terms of Service</a>
+                <a class="underline-offset-4 hover:underline hover:text-[#FA92A5] transition-colors whitespace-nowrap"
+                    href="#">Press</a>
+            </nav>
+            <div class="flex items-center gap-4 text-[#232323] shrink-0">
+                <a aria-label="Instagram" class="hover:text-[#FA92A5] transition-colors" href="#">
+                    <span class="material-symbols-outlined"
+                        style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+                </a>
+                <a aria-label="Facebook" class="hover:text-[#FA92A5] transition-colors" href="#">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">share</span>
+                </a>
+            </div>
+        </div>
+        <div class="w-full text-center font-label-caps text-[10px] text-[#232323]/60 tracking-widest px-gutter">
+            © 2024 SALON LOOHA. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('scroll-canvas');
+        const context = canvas.getContext('2d');
+        const loading = document.getElementById('loading');
+
+        const frameCount = 173;
+        const currentFrame = index => (
+            `ezgif-frame-${(index + 1).toString().padStart(3, '0')}.jpg`
+        );
+
+        const images = [];
+        let loadedImages = 0;
+        let imagesReady = false;
+
+        canvas.width = 1920;
+        canvas.height = 1080;
+
+        for (let i = 0; i < frameCount; i++) {
+            const img = new Image();
+            img.onload = () => {
+                loadedImages++;
+                loading.innerText = `Loading... ${Math.round((loadedImages / frameCount) * 100)}%`;
+
+                if (loadedImages === 1) {
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    context.drawImage(img, 0, 0);
+                }
+
+                if (loadedImages === frameCount) {
+                    loading.style.display = 'none';
+                    imagesReady = true;
+                    requestAnimationFrame(() => updateImage());
+                }
+            };
+            img.src = currentFrame(i);
+            images.push(img);
+        }
+
+        const updateImage = () => {
+            if (!imagesReady) return;
+
+            const container = document.getElementById('animation-container');
+            const rect = container.getBoundingClientRect();
+
+            const maxScroll = rect.height - window.innerHeight;
+            let scrollFraction = 0;
+
+            if (rect.top > 0) {
+                scrollFraction = 0;
+            } else if (-rect.top >= maxScroll) {
+                scrollFraction = 1;
+            } else {
+                scrollFraction = -rect.top / maxScroll;
+            }
+
+            const frameIndex = Math.min(
+                frameCount - 1,
+                Math.max(0, Math.floor(scrollFraction * frameCount))
+            );
+
+            requestAnimationFrame(() => {
+                context.drawImage(images[frameIndex], 0, 0);
+            });
+        };
+
+        window.addEventListener('scroll', () => {
+            updateImage();
+        });
+
+        window.addEventListener('resize', () => {
+            if (imagesReady) {
+                updateImage();
+            }
+        });
+
+        // Mobile Menu Toggle Logic
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        const openMenu = () => {
+            mobileMenu.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        };
+
+        const closeMenu = () => {
+            mobileMenu.classList.add('translate-x-full');
+            document.body.style.overflow = '';
+        };
+
+        if (mobileMenuToggle && mobileMenuClose && mobileMenu) {
+            mobileMenuToggle.addEventListener('click', openMenu);
+            mobileMenuClose.addEventListener('click', closeMenu);
+            // Close menu when a link is clicked
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+        }
+
+        // Interactive Mouse Ripples Logic
+        const rippleContainer = document.getElementById('ripple-container');
+        let lastRippleTime = 0;
+
+        // Only initialize on desktop to avoid mobile touch conflicts
+        if (window.matchMedia("(min-width: 768px)").matches) {
+            document.addEventListener('mousemove', (e) => {
+                const now = Date.now();
+                if (now - lastRippleTime < 60) return; // Throttle ripple creation for performance
+                lastRippleTime = now;
+
+                const ripple = document.createElement('div');
+                ripple.className = 'mouse-ripple';
+
+                // Position ripple exactly under cursor
+                ripple.style.left = `${e.clientX}px`;
+                ripple.style.top = `${e.clientY}px`;
+
+                // Add slight randomness to size for organic water feel
+                const baseSize = 100;
+                const randomSize = baseSize * (0.8 + Math.random() * 0.4);
+                ripple.style.width = `${randomSize}px`;
+                ripple.style.height = `${randomSize}px`;
+
+                rippleContainer.appendChild(ripple);
+
+                // Clean up DOM after animation completes (1.2s)
+                setTimeout(() => {
+                    if (ripple.parentNode) ripple.parentNode.removeChild(ripple);
+                }, 1200);
+            }, { passive: true });
+        }
+    </script>
+</body>
+
+</html>
